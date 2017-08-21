@@ -2,6 +2,7 @@
 
 namespace Omnipay\Alipay;
 
+use Omnipay\Alipay\Requests\AlipayFundTransToaccountTransferRequest;
 use Omnipay\Alipay\Requests\AopTradeAppPayRequest;
 
 /**
@@ -31,5 +32,15 @@ class AopAppGateway extends AbstractAopGateway
     public function purchase(array $parameters = [])
     {
         return $this->createRequest(AopTradeAppPayRequest::class, $parameters);
+    }
+
+    /**
+     * @param array $parameters
+     *
+     * @return AlipayFundTransToaccountTransferRequest
+     */
+    public function transToAccount(array $parameters = [])
+    {
+        return $this->createRequest(AlipayFundTransToaccountTransferRequest::class, $parameters);
     }
 }
